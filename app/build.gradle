@@ -45,7 +45,6 @@ dependencies {
     implementation 'com.squareup.picasso:picasso:2.3.2'
     implementation 'com.android.support:design:27.1.0'
     implementation 'com.squareup.retrofit2:retrofit:2.1.0'
-
     implementation 'com.android.volley:volley:1.1.0'
     // JSON Parsing
     implementation 'com.google.code.gson:gson:2.6.1'
@@ -77,17 +76,22 @@ dependencies {
     implementation project(':videotrimmer')
     implementation 'com.github.bumptech.glide:glide:4.5.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.5.0'
-
-    implementation 'com.google.android.exoplayer:exoplayer:2.7.3'
-    implementation 'org.jsoup:jsoup:1.10.3'
-
-
+    implementation('com.squareup.retrofit2:retrofit:2.1.0') {
+        // exclude Retrofit’s OkHttp dependency module and define your own module import
+        exclude module: 'okhttp'
+    }
+    implementation 'com.google.code.gson:gson:2.6.2'
+    implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+    implementation 'com.squareup.okhttp3:okhttp:3.4.1'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.5.4'
     // code generator for view
-    implementation "com.jakewharton:butterknife:8.8.1"
+    implementation 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor "com.jakewharton:butterknife-compiler:8.8.1"
-
+    implementation 'com.android.support:multidex:1.0.1'
     implementation('com.github.bumptech.glide:glide:4.7.1@aar') {
         transitive = true
     }
+    implementation files('src/main/libs/com.fasterxml.jackson.annotations.jar')
 }
 apply plugin: 'com.google.gms.google-services'
